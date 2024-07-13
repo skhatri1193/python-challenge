@@ -7,6 +7,7 @@ from pathlib import Path
 # If required, I can rewrite script to account for general path but I will not be able to load the file myself.
 
 opened_file = open(r"C:\Users\Shari\Desktop\Data Science Course\Challenges\python-challenge\PyBank\Resources\budget_data.csv")
+
 read_file = reader(opened_file)
 
 # Converting read file into a list
@@ -34,7 +35,7 @@ gross_profit = round(sum(profit_losses),2)
 changes = [profit_losses[i] - profit_losses[i-1] for i in range(1,len(profit_losses))]
 
 # Anaylsis of month to month changes
-avg_changes = (sum(changes) / len(changes)) 
+avg_changes = round((sum(changes) / len(changes)),2) 
 max_changes = max(changes)
 min_changes = min(changes)
 
@@ -49,6 +50,7 @@ print("--------------------------")
 print("")
 print(f'Total Months: {total_months}')
 print(f'Total: ${gross_profit}')
+print(f'Average Change: ${avg_changes}')
 print(f'Greatest Increase in Profits: {max_month} (${max_changes})')
 print(f'Greatest Decrease in Profits: {min_month} (${min_changes})')
 
@@ -61,6 +63,7 @@ report.write("--------------------------" + '\n')
 report.write("" + '\n')
 report.write(f'Total Months: {total_months}' + '\n')
 report.write(f'Total: ${gross_profit}' + '\n')
+report.write(f'Average Change: ${avg_changes}' + '\n')
 report.write(f'Greatest Increase in Profits: {max_month} (${max_changes})' + '\n')
 report.write(f'Greatest Decrease in Profits: {min_month} (${min_changes})' + '\n')
 
